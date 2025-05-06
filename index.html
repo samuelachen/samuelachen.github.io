@@ -5,52 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Portfolio</title>
   <style>
-    body {
+    /* Global Styles */
+    html, body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      padding: 0;
+      font-family: sans-serif;
       scroll-behavior: smooth;
     }
 
+    /* Sticky Navbar */
     header {
-      background: #333;
-      color: white;
-      padding: 1rem 2rem;
-      position: fixed;
-      width: 100%;
+      position: sticky;
       top: 0;
+      background: #222;
+      padding: 1rem;
       z-index: 1000;
     }
 
     nav {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
+      gap: 2rem;
     }
 
     nav a {
-      color: white;
+      color: #fff;
       text-decoration: none;
-      padding: 0.5rem;
+      font-weight: bold;
     }
 
     nav a:hover {
       text-decoration: underline;
     }
 
+    /* Section Styling */
     section {
-      padding: 100px 20px 80px;
+      padding: 100px 20px;
       min-height: 100vh;
     }
 
     #about {
-      background-color: #f0f8ff;
+      background-color: #d0f0ff;
     }
 
     #experiences {
-      background-color: #e6f2ff;
+      background-color: #b0e0ff;
     }
 
     #coursework {
-      background-color: #ccf2ff;
+      background-color: #90d0ff;
     }
 
     h2 {
@@ -65,6 +68,7 @@
 </head>
 <body>
 
+  <!-- Sticky Navbar -->
   <header>
     <nav>
       <a href="#about">About</a>
@@ -73,11 +77,12 @@
     </nav>
   </header>
 
+  <!-- Page Sections (Continuous Scroll) -->
   <main>
     <section id="about">
       <div class="container">
         <h2>About</h2>
-        <p>Hello! I'm Squinty, a passionate learner and aspiring data scientist. I enjoy working on meaningful projects, learning new technologies, and solving interesting problems.</p>
+        <p>Hi! I'm Squinty, a student passionate about data science, statistics, and building cool projects. I enjoy exploring new ideas, working with data, and making an impact through my work.</p>
       </div>
     </section>
 
@@ -85,9 +90,9 @@
       <div class="container">
         <h2>Experiences</h2>
         <ul>
-          <li>Data Science Intern at XYZ Company – Summer 2024</li>
-          <li>Statistics Club President at University of Michigan</li>
-          <li>Research Assistant in Machine Learning Lab</li>
+          <li>Summer 2024: Data Science Intern at XYZ Company</li>
+          <li>2023–2025: President, Stats & Data Science Club</li>
+          <li>2022–2023: Research Assistant, Machine Learning Lab</li>
         </ul>
       </div>
     </section>
