@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Portfolio</title>
   <style>
-    /* Global Styles */
     html, body {
       margin: 0;
       padding: 0;
@@ -13,23 +12,38 @@
       scroll-behavior: smooth;
     }
 
-    /* Sticky Navbar */
+    /* Banner Section */
+    #banner {
+      background-color: #007acc;
+      color: white;
+      padding: 60px 20px 40px;
+      text-align: center;
+    }
 
+    #banner h1 {
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+    }
 
-    nav {
+    .banner-buttons {
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
-    nav a {
-      color: #fff;
+    .banner-buttons a {
+      background-color: white;
+      color: #007acc;
       text-decoration: none;
       font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background 0.3s ease;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    .banner-buttons a:hover {
+      background-color: #e6f2ff;
     }
 
     /* Section Styling */
@@ -39,15 +53,15 @@
     }
 
     #about {
-      background-color: #FFFFFF;
+      background-color: #d0f0ff;
     }
 
     #experiences {
-      background-color: #FFFFFF;
+      background-color: #b0e0ff;
     }
 
     #coursework {
-      background-color: #FFFFFF;
+      background-color: #90d0ff;
     }
 
     h2 {
@@ -62,16 +76,17 @@
 </head>
 <body>
 
-  <!-- Sticky Navbar -->
-  <header>
-    <nav>
+  <!-- Banner with Section Buttons -->
+  <section id="banner">
+    <h1>Hi, I'm Squinty!</h1>
+    <div class="banner-buttons">
       <a href="#about">About</a>
       <a href="#experiences">Experiences</a>
       <a href="#coursework">Coursework</a>
-    </nav>
-  </header>
+    </div>
+  </section>
 
-  <!-- Page Sections (Continuous Scroll) -->
+  <!-- Page Sections -->
   <main>
     <section id="about">
       <div class="container">
