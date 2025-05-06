@@ -13,23 +13,35 @@
       background-color: white;
     }
 
-    /* Header Styles */
+    /* Header Layout */
     header {
       background-color: white;
       color: black;
       padding: 30px 20px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       position: relative;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
 
+    /* Local Time */
+    .local-time {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .time-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header Buttons */
     .header-buttons {
-      position: absolute;
-      top: 20px;
-      right: 20px;
       display: flex;
       gap: 1rem;
     }
@@ -81,8 +93,13 @@
 </head>
 <body>
 
-  <!-- Header with buttons -->
+  <!-- Header with local time and buttons -->
   <header>
+    <div class="time-container">
+      <span class="local-time">Local Time:</span>
+      <span id="time-display"></span>
+    </div>
+    <h1>Hi, I'm Squinty!</h1>
     <div class="header-buttons">
       <a href="#about">About</a>
       <a href="#experiences">Experiences</a>
@@ -122,6 +139,19 @@
       </div>
     </section>
   </main>
+
+  <!-- JavaScript for updating local time -->
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString();
+      document.getElementById("time-display").textContent = timeString;
+    }
+
+    // Initial update and repeat every second
+    updateTime();
+    setInterval(updateTime, 1000);
+  </script>
 
 </body>
 </html>
