@@ -13,24 +13,28 @@
       background-color: white;
     }
 
-    /* Banner Styles */
+    /* Fixed Banner */
     #banner {
-      background-color: #007acc;
-      color: white;
-      padding: 60px 20px 40px;
-      position: relative;
+      background-color: white;
+      color: black;
+      padding: 15px 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     #banner h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 1.5rem;
     }
 
-    /* Top-right Button Navigation */
     .banner-buttons {
-      position: absolute;
-      top: 20px;
-      right: 20px;
       display: flex;
       gap: 1rem;
     }
@@ -41,10 +45,9 @@
       color: black;
       text-decoration: none;
       font-weight: bold;
-      padding: 10px 15px;
+      padding: 8px 12px;
       border-radius: 5px;
-      font-size: 1rem;
-      transition: background 0.3s;
+      font-size: 0.95rem;
     }
 
     .banner-buttons a::after {
@@ -64,7 +67,7 @@
 
     /* Section Styles */
     section {
-      padding: 100px 20px;
+      padding: 120px 20px 100px; /* Top padding increased to clear the fixed banner */
       min-height: 100vh;
       background-color: white;
       color: black;
@@ -82,9 +85,9 @@
 </head>
 <body>
 
-  <!-- Banner with top-right buttons -->
+  <!-- Fixed, Minimal Banner -->
   <section id="banner">
-    <h1>Hi, I'm Squinty!</h1>
+    <h1>Squinty</h1>
     <div class="banner-buttons">
       <a href="#about">About</a>
       <a href="#experiences">Experiences</a>
