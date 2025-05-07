@@ -13,15 +13,19 @@
       background-color: white;
     }
 
-    /* Header Layout */
+    /* Header */
     header {
       background-color: white;
       color: black;
-      padding: 30px 20px 20px;
+      padding: 30px 0 20px;
+    }
+
+    .header-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
+      max-width: 50%;
+      margin: auto;
     }
 
     header h1 {
@@ -38,7 +42,6 @@
     .time-container {
       display: flex;
       flex-direction: column;
-      padding: 10px 15px;
     }
 
     /* Header Buttons */
@@ -94,17 +97,19 @@
 </head>
 <body>
 
-  <!-- Header with local time and buttons -->
+  <!-- Header with centered content -->
   <header>
-    <div class="time-container">
-      <span class="local-time">Local Time:</span>
-      <span id="time-display"></span>
-    </div>
-    <h1>Hi, I'm Squinty!</h1>
-    <div class="header-buttons">
-      <a href="#about">About</a>
-      <a href="#experiences">Experiences</a>
-      <a href="#coursework">Coursework</a>
+    <div class="header-container">
+      <div class="time-container">
+        <span class="local-time">Local Time:</span>
+        <span id="time-display"></span>
+      </div>
+      <h1>Hi, I'm Squinty!</h1>
+      <div class="header-buttons">
+        <a href="#about">About</a>
+        <a href="#experiences">Experiences</a>
+        <a href="#coursework">Coursework</a>
+      </div>
     </div>
   </header>
 
@@ -113,9 +118,7 @@
     <section id="about">
       <div class="container">
         <h2>About</h2>
-        <p>Hey! I'm Samuel.</p>
-        <p>I'm a student at the University of Michigan</p>
-        <p>Currently studying Economics with a minor in Data Science.</p>
+        <p>Hi! I'm Squinty, a student passionate about data science, statistics, and building cool projects. I enjoy exploring new ideas, working with data, and making an impact through my work.</p>
       </div>
     </section>
 
@@ -143,7 +146,7 @@
     </section>
   </main>
 
-  <!-- JavaScript for updating local time -->
+  <!-- JavaScript for local time -->
   <script>
     function updateTime() {
       const now = new Date();
@@ -151,7 +154,6 @@
       document.getElementById("time-display").textContent = timeString;
     }
 
-    // Initial update and repeat every second
     updateTime();
     setInterval(updateTime, 1000);
   </script>
