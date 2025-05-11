@@ -8,58 +8,63 @@
     html, body {
       margin: 0;
       padding: 0;
-      font-family: sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       scroll-behavior: smooth;
-      background-color: white;
+      background-color: #212020;
+      color: #fff;
+      line-height: 1.6;
     }
 
     /* Header */
     header {
-      background-color: white;
-      color: black;
-      padding: 30px 0 20px;
+      background-color: #212020;
+      padding: 40px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
     }
 
     .header-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 50%;
-      margin: auto;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-
-    /* Local Time */
-    .local-time {
-      font-size: 1rem;
-      font-weight: bold;
-    }
-
-    .time-container {
+    .header-left {
       display: flex;
       flex-direction: column;
+      gap: 4px;
     }
 
-    /* Header Buttons */
+    .header-name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0;
+      color: #fff;
+    }
+
+    .location {
+      font-size: 0.9rem;
+      color: #999;
+    }
+
+    /* Header Navigation */
     .header-buttons {
       display: flex;
-      gap: 1rem;
+      gap: 2rem;
     }
 
     .header-buttons a {
-      position: relative;
-      background: white;
-      color: black;
+      color: #fff;
       text-decoration: none;
-      font-weight: bold;
-      padding: 10px 15px;
-      border-radius: 5px;
-      font-size: 1rem;
-      transition: background 0.3s;
+      font-size: 0.9rem;
+      font-weight: 500;
+      position: relative;
+      padding: 4px 0;
     }
 
     .header-buttons a::after {
@@ -67,9 +72,9 @@
       position: absolute;
       left: 0;
       bottom: 0;
-      width: 0%;
-      height: 2px;
-      background-color: black;
+      width: 0;
+      height: 1px;
+      background-color: #fff;
       transition: width 0.3s ease;
     }
 
@@ -77,261 +82,486 @@
       width: 100%;
     }
 
-    /* Section Styles */
+    /* Main Content */
+    main {
+      margin-top: 120px;
+    }
+
+    /* Update section styles for better scroll behavior */
     section {
-      padding: 100px 20px;
-      min-height: 100vh;
-      background-color: white;
-      color: black;
+      padding: 80px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      scroll-margin-top: 120px;
+    }
+
+    /* Add specific style for about section */
+    #about {
+      padding-top: 40px;  /* Reduced from 80px to 40px */
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .section-header h1 {
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin: 0 0 1rem 0;
+      line-height: 1.2;
+      color: #fff;
     }
 
     h2 {
-      margin-top: 0;
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin: 0 0 2rem 0;
+      color: #999;
     }
 
-    .container {
-      max-width: 800px;
-      margin: auto;
-    }
-
+    /* Experience Section */
     .experience-list {
       display: flex;
       flex-direction: column;
-      gap: 25px;
-      font-size: 0.95rem;
+      gap: 2rem;
     }
 
     .job {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 10px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #333;
     }
 
-    .job div {
-      flex: 1;
+    .job:last-child {
+      border-bottom: none;
     }
 
-    .job .role {
-      text-align: center;
-      font-weight: 500;
-    }
-
-    .job .date {
-      text-align: right;
-      color: #555;
+    .job .company {
+      font-weight: 600;
+      color: #fff;
     }
 
     .job .sub {
-      font-size: 0.85rem;
-      color: #777;
+      font-size: 0.9rem;
+      color: #999;
+      margin-top: 4px;
     }
 
-    
+    .job .role {
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .job .date {
+      color: #999;
+      text-align: right;
+    }
+
+    /* Coursework Section */
+    .coursework-section h3 {
+      font-size: 1.2rem;
+      margin: 2rem 0 1rem 0;
+      color: #fff;
+    }
+
+    .coursework-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .coursework-section li {
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .coursework-section strong {
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .divider {
+      border: none;
+      border-top: 2px solid #333;
+      margin: 3rem 0;
+    }
+
+    .school-label {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #999;
+      margin: 1rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .header-buttons {
+        margin-top: 1rem;
+      }
+
+      .job {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+
+      .job .date {
+        text-align: left;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    /* Update Contact Section Styles */
+    .contact-section {
+      padding-top: 40px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .contact-item h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #999;
+      margin: 0;
+    }
+
+    .contact-item a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: opacity 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      opacity: 0.7;
+    }
+
+    .contact-item p {
+      margin: 0;
+      color: #fff;
+      font-size: 1.1rem;
+    }
+
+    /* Add Resume Button Styles */
+    .resume-button-container {
+      text-align: center;
+      margin: 7.5px 0 60px 0;
+    }
+
+    .resume-button {
+      display: inline-block;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .resume-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    }
+
+    /* Add Location Timeline Styles */
+    .location-timeline {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .location-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      margin: 20px 0;
+    }
+
+    .location-line {
+      position: absolute;
+      top: 50%;
+      left: 25%;
+      right: 25%;
+      height: 2px;
+      background-color: #fff;
+      z-index: 1;
+    }
+
+    .location-item {
+      text-align: center;
+      z-index: 2;
+      background-color: #212020;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .dallas-skyline {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 60px;
+      opacity: 0.15;
+      background-image: url('https://github.com/samuelachen/samuelachen.github.io/blob/main/Dallas.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .location-city {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .location-time {
+      font-size: 0.9rem;
+      color: #999;
+      position: relative;
+      z-index: 3;
+      margin-top: 8px;
+    }
+
+    .airplane {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5rem;
+      z-index: 2;
+      background-color: #212020;
+      padding: 0 10px;
+    }
   </style>
 </head>
 <body>
-
-  <!-- Header with centered content -->
   <header>
     <div class="header-container">
-      <div class="time-container">
-        <span class="local-time">Local Time:</span>
-        <span id="time-display"></span>
+      <div class="header-left">
+        <h1 class="header-name">Samuel Chen</h1>
+        <span class="location">Ann Arbor, Michigan</span>
       </div>
-      <div class="header-buttons">
+      <nav class="header-buttons">
         <a href="#about">About</a>
-        <a href="#experiences">Experiences</a>
-        <a href="#coursework">Coursework</a>
-      </div>
+        <a href="#experiences">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Page Sections -->
   <main>
-    <section id="about">
-      <div class="container">
-        <h1>About</h1>
-        <h2>Hey! I'm Samuel. I'm a student at the University of Michigan.</h2> 
-        <h2>Currently studying Economics with a minor in Data Science.</h2>
-      </div>
-    </section>
-
-    <section id="experiences">
-      <div class="container">
-        <h2>Experiences</h2>
-        <ul>
-    <div class="experience-list">
-      <div class="job">
-        <div>
-          <strong>Luxury Presence</strong><br />
-          <span class="sub">Full-time</span>
+    <div class="location-timeline">
+      <div class="location-container">
+        <div class="location-line"></div>
+        <div class="location-item">
+          <div class="dallas-skyline"></div>
+          <div class="location-city">Dallas, TX</div>
+          <div class="location-time" id="dallas-time"></div>
         </div>
-        <div class="role">Director of Product Design</div>
-        <div class="date">2021 → Now</div>
-      </div>
-
-      <div class="job">
-        <div>
-          <strong>WhenThen</strong><br />
-          <span class="sub">Full-time • Acquired by Mangopay</span>
+        <div class="airplane">✈️</div>
+        <div class="location-item">
+          <div class="location-city">Ann Arbor, MI</div>
+          <div class="location-time" id="annarbor-time"></div>
         </div>
-        <div class="role">Staff Product Designer</div>
-        <div class="date">2021</div>
-      </div>
-
-      <div class="job">
-        <div>
-          <strong>Eight Inc. & Tim Kobe</strong><br />
-          <span class="sub">Contractor</span>
-        </div>
-        <div class="role">Senior Product Designer</div>
-        <div class="date">2019</div>
-      </div>
-
-      <div class="job">
-        <div>
-          <strong>Airbnb</strong><br />
-          <span class="sub">Contractor</span>
-        </div>
-        <div class="role">Senior Product Designer</div>
-        <div class="date">2019</div>
-      </div>
-
-      <div class="job">
-        <div>
-          <strong>Xolo</strong><br />
-          <span class="sub">Contractor</span>
-        </div>
-        <div class="role">Senior Product Designer</div>
-        <div class="date">2019</div>
-      </div>
-
-      <div class="job">
-        <div>
-          <strong>Voog</strong><br />
-          <span class="sub">Contractor</span>
-        </div>
-        <div class="role">Senior Product Designer</div>
-        <div class="date">2019</div>
-      </div>
-
-      <div class="job">
-        <div>
-          <strong>PC Financial & Mastercard</strong><br />
-          <span class="sub">Contractor</span>
-        </div>
-        <div class="role">Design Lead</div>
-        <div class="date">2018</div>
-      </div>
-
-      <div class="job">
-        <div>
-          <strong>American Express</strong><br />
-          <span class="sub">Contractor</span>
-        </div>
-        <div class="role">Design Lead</div>
-        <div class="date">2018</div>
-      </div>
-
-      <div class="job">
-        <div>
-          <strong>Interac Canada</strong><br />
-          <span class="sub">Contractor</span>
-        </div>
-        <div class="role">Design Lead</div>
-        <div class="date">2018</div>
-      </div>
-
-      <div class="job">
-        <div>
-          <strong>Thorgate</strong><br />
-          <span class="sub">Full-time • Agency</span>
-        </div>
-        <div class="role">Product Designer</div>
-        <div class="date">2013 → 2017</div>
       </div>
     </div>
 
-        </ul>
+    <section id="about">
+      <div class="section-header">
+        <h1>About</h1>
+      </div>
+      <h2>Hey! I'm Samuel. I'm a student at the University of Michigan studying Economics with a minor in Data Science.</h2>
+    </section>
+
+    <section id="experiences">
+      <div class="section-header">
+        <h1>Experience</h1>
+      </div>
+      <div class="experience-list">
+        <div class="job">
+          <div>
+            <strong>Luxury Presence</strong><br />
+            <span class="sub">Full-time</span>
+          </div>
+          <div class="role">Director of Product Design</div>
+          <div class="date">2021 → Now</div>
+        </div>
+
+        <div class="job">
+          <div>
+            <strong>WhenThen</strong><br />
+            <span class="sub">Full-time • Acquired by Mangopay</span>
+          </div>
+          <div class="role">Staff Product Designer</div>
+          <div class="date">2021</div>
+        </div>
+
+        <div class="job">
+          <div>
+            <strong>Eight Inc. & Tim Kobe</strong><br />
+            <span class="sub">Contractor</span>
+          </div>
+          <div class="role">Senior Product Designer</div>
+          <div class="date">2019</div>
+        </div>
+
+        <div class="job">
+          <div>
+            <strong>Airbnb</strong><br />
+            <span class="sub">Contractor</span>
+          </div>
+          <div class="role">Senior Product Designer</div>
+          <div class="date">2019</div>
+        </div>
+
+        <div class="job">
+          <div>
+            <strong>Xolo</strong><br />
+            <span class="sub">Contractor</span>
+          </div>
+          <div class="role">Senior Product Designer</div>
+          <div class="date">2019</div>
+        </div>
+
+        <div class="job">
+          <div>
+            <strong>Voog</strong><br />
+            <span class="sub">Contractor</span>
+          </div>
+          <div class="role">Senior Product Designer</div>
+          <div class="date">2019</div>
+        </div>
+
+        <div class="job">
+          <div>
+            <strong>PC Financial & Mastercard</strong><br />
+            <span class="sub">Contractor</span>
+          </div>
+          <div class="role">Design Lead</div>
+          <div class="date">2018</div>
+        </div>
+
+        <div class="job">
+          <div>
+            <strong>American Express</strong><br />
+            <span class="sub">Contractor</span>
+          </div>
+          <div class="role">Design Lead</div>
+          <div class="date">2018</div>
+        </div>
+
+        <div class="job">
+          <div>
+            <strong>Interac Canada</strong><br />
+            <span class="sub">Contractor</span>
+          </div>
+          <div class="role">Design Lead</div>
+          <div class="date">2018</div>
+        </div>
+
+        <div class="job">
+          <div>
+            <strong>Thorgate</strong><br />
+            <span class="sub">Full-time • Agency</span>
+          </div>
+          <div class="role">Product Designer</div>
+          <div class="date">2013 → 2017</div>
+        </div>
       </div>
     </section>
 
-    <section id="coursework">
-      <div class="container">
-        <h2>Coursework</h2>
-        <ul>
-             <!-- Winter 2025 -->
-            <h3>Winter 2025 (Current)</h3>
-            <ul>
-              <li><strong>CHEM215</strong>: Organic Chemistry II</li>
-              <li><strong>CHEM216</strong>: Organic Chemistry II Lab</li>
-              <li><strong>BIO171</strong>: Ecology and Evolution</li>
-              <li><strong>BIO173</strong>: Biology I Lab</li>
-              <li><strong>SPANISH102</strong>: Spanish Language and Culture II</li>
-            </ul>
-            
-            <!-- Fall 2024 -->
-            <h3>Fall 2024</h3>
-            <ul>
-              <li><strong>CHEM210</strong>: Organic Chemistry I</li>
-              <li><strong>BIOLOGY172</strong>: Introductory Biology</li>
-              <li><strong>CHEM211</strong>: Organic Chemistry I Lab</li>
-              <li><strong>SPANISH101</strong>: Spanish Language and Culture I</li>
-              <li><strong>UROP</strong>: Undergraduate Research Opportunity Program</li>
-            </ul>
+    <div class="resume-button-container">
+      <a href="path/to/your/resume.pdf" class="resume-button" target="_blank">Resume (PDF)</a>
+    </div>
 
-                    <!-- Separation Bar: UofM vs MSU -->
-            <!-- Separation Bar: UofM vs MSU -->
-            <hr style="border-top: 3px solid #FFCB05; margin-top: 30px;">
-            
-            <!-- Adjust the text to be more balanced -->
-            <p style="text-align: center; font-weight: bold; margin: 10px 0;">MSU courses below. UofM courses above.</p>
-            
-            <hr style="border-top: 3px solid #FFCB05; margin-bottom: 30px;">
+    <section id="contact" class="contact-section">
+      <div class="section-header">
+        <h1>Contact</h1>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <h3>Email</h3>
+          <a href="mailto:your.email@example.com">your.email@example.com</a>
+        </div>
+        
+        <div class="contact-item">
+          <h3>Phone</h3>
+          <p>(123) 456-7890</p>
+        </div>
+        
+        <div class="contact-item">
+          <h3>LinkedIn</h3>
+          <a href="https://linkedin.com/in/your-profile" target="_blank">linkedin.com/in/your-profile</a>
+        </div>
+        
+        <div class="contact-item">
+          <h3>GitHub</h3>
+          <a href="https://github.com/your-username" target="_blank">github.com/your-username</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-            
-            <!-- Summer 2024 -->
-            <h3>Summer 2024</h3>
-            <ul>
-              <li><strong>PHY183B</strong>: Physics for Scientists and Engineers I</li>
-              <li><strong>WRA101</strong>: Writing as Inquiry</li>
-            </ul>
-          
-            <!-- Spring 2024 -->
-            <h3>Spring 2024</h3>
-            <ul>
-              <li><strong>LB172</strong>: Chemistry II</li>
-              <li><strong>LB172L</strong>: Chemistry II Lab</li>
-              <li><strong>PSY101</strong>: Introductory Psychology</li>
-              <li><strong>STT231</strong>: Statistics for Scientists</li>
-              <li><strong>ANP203</strong>: Introduction to Archaeology</li>
-            </ul>
-          
-              <!-- Fall 2023 -->
-              <h3>Fall 2023</h3>
-              <ul>
-                <li><strong>ISS210</strong>: Society and the Individual</li>
-                <li><strong>LB118</strong>: Calculus I</li>
-                <li><strong>LB171</strong>: Chemistry I</li>
-                <li><strong>LB171L</strong>: Chemistry I Lab</li>
-              </ul>
-            </div>
-      </section>
-    </main>
-
-
-  <!-- JavaScript for local time -->
   <script>
-    function updateTime() {
+    // Add time zone conversion function
+    function updateTimes() {
       const now = new Date();
-      const timeString = now.toLocaleTimeString();
-      document.getElementById("time-display").textContent = timeString;
+      
+      // Dallas time (Central Time)
+      document.getElementById("dallas-time").textContent = now.toLocaleTimeString("en-US", {
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        hour12: true,
+        timeZone: "America/Chicago"  // Central Time Zone
+      });
+
+      // Ann Arbor time (Eastern Time)
+      document.getElementById("annarbor-time").textContent = now.toLocaleTimeString("en-US", {
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        hour12: true,
+        timeZone: "America/New_York"  // Eastern Time Zone
+      });
     }
 
-    updateTime();
-    setInterval(updateTime, 1000);
+    // Update times immediately and then every second
+    updateTimes();
+    setInterval(updateTimes, 1000);
   </script>
-
 </body>
 </html>
