@@ -177,17 +177,17 @@
     .education-item.umich:hover::before {
       background: linear-gradient(
         to right,
-        rgba(245, 220, 0) 0%,   
+        rgba(245, 220, 0, 0.8) 0%,   
         rgba(204, 170, 19, 1) 9.09%, 
         rgba(153, 137, 33, 1) 18.18%,
         rgba(102, 105, 48, 1) 27.27%,
         rgba(51, 72, 62, 1) 36.36%,
-        rgba(0, 39, 76, 1) 54.54%,  
+        rgba(0, 39, 76, 0.8) 54.54%,  
         rgba(51, 72, 62, 1) 63.63%, 
         rgba(102, 105, 48, 1) 72.72%,
         rgba(153, 137, 33, 1) 81.81%,
         rgba(204, 170, 19, 1) 90.9%,
-        rgba(245, 220, 0) 100%      
+        rgba(245, 220, 0, 0.8) 100%      
       );
       background-size: 200% 100%;
       animation: gradientMove 3s linear infinite;
@@ -261,7 +261,7 @@
 
     .job {
       display: grid;
-      grid-template-columns: 2fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;  /* Three equal columns */
       padding: 1rem;
       border: 1px solid #333;
       border-radius: 8px;
@@ -269,6 +269,29 @@
       cursor: pointer;
       position: relative;
       overflow: hidden;
+      align-items: center;  /* Center items vertically */
+    }
+
+    .job .company-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .job .role {
+      font-weight: 500;
+      color: #fff;
+      transition: color 0.3s ease;
+      position: relative;
+      z-index: 1;
+      text-align: center;  /* Center the role text */
+    }
+
+    .job .date {
+      color: #999;
+      text-align: right;
+      transition: color 0.3s ease;
+      position: relative;
+      z-index: 1;
     }
 
     .job::before {
@@ -304,11 +327,6 @@
       background-size: 200% 100%;
     }
 
-    .job .content {
-      position: relative;
-      z-index: 1;
-    }
-
     .job:hover {
       transform: translateY(-4px);
       border: 1px solid rgba(255, 255, 255, 0.3);
@@ -327,22 +345,6 @@
       font-size: 0.9rem;
       color: #999;
       margin-top: 4px;
-      transition: color 0.3s ease;
-      position: relative;
-      z-index: 1;
-    }
-
-    .job .role {
-      font-weight: 500;
-      color: #fff;
-      transition: color 0.3s ease;
-      position: relative;
-      z-index: 1;
-    }
-
-    .job .date {
-      color: #999;
-      text-align: right;
       transition: color 0.3s ease;
       position: relative;
       z-index: 1;
@@ -403,12 +405,16 @@
       }
 
       .job {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr;  /* Stack on mobile */
         gap: 0.5rem;
       }
 
+      .job .role {
+        text-align: left;  /* Left align on mobile */
+      }
+
       .job .date {
-        text-align: left;
+        text-align: left;  /* Left align on mobile */
       }
 
       h1 {
@@ -618,8 +624,8 @@
       </div>
       <div class="experience-list">
         <div class="job">
-          <div>
-            <strong>Luxury Presence</strong><br />
+          <div class="company-info">
+            <strong>Luxury Presence</strong>
             <span class="sub">Full-time</span>
           </div>
           <div class="role">Director of Product Design</div>
@@ -627,8 +633,8 @@
         </div>
 
         <div class="job">
-          <div>
-            <strong>WhenThen</strong><br />
+          <div class="company-info">
+            <strong>WhenThen</strong>
             <span class="sub">Full-time • Acquired by Mangopay</span>
           </div>
           <div class="role">Staff Product Designer</div>
@@ -636,8 +642,8 @@
         </div>
 
         <div class="job">
-          <div>
-            <strong>Eight Inc. & Tim Kobe</strong><br />
+          <div class="company-info">
+            <strong>Eight Inc. & Tim Kobe</strong>
             <span class="sub">Contractor</span>
           </div>
           <div class="role">Senior Product Designer</div>
@@ -645,8 +651,8 @@
         </div>
 
         <div class="job">
-          <div>
-            <strong>Airbnb</strong><br />
+          <div class="company-info">
+            <strong>Airbnb</strong>
             <span class="sub">Contractor</span>
           </div>
           <div class="role">Senior Product Designer</div>
@@ -654,8 +660,8 @@
         </div>
 
         <div class="job">
-          <div>
-            <strong>Xolo</strong><br />
+          <div class="company-info">
+            <strong>Xolo</strong>
             <span class="sub">Contractor</span>
           </div>
           <div class="role">Senior Product Designer</div>
@@ -663,8 +669,8 @@
         </div>
 
         <div class="job">
-          <div>
-            <strong>Voog</strong><br />
+          <div class="company-info">
+            <strong>Voog</strong>
             <span class="sub">Contractor</span>
           </div>
           <div class="role">Senior Product Designer</div>
@@ -672,8 +678,8 @@
         </div>
 
         <div class="job">
-          <div>
-            <strong>PC Financial & Mastercard</strong><br />
+          <div class="company-info">
+            <strong>PC Financial & Mastercard</strong>
             <span class="sub">Contractor</span>
           </div>
           <div class="role">Design Lead</div>
@@ -681,8 +687,8 @@
         </div>
 
         <div class="job">
-          <div>
-            <strong>American Express</strong><br />
+          <div class="company-info">
+            <strong>American Express</strong>
             <span class="sub">Contractor</span>
           </div>
           <div class="role">Design Lead</div>
@@ -690,8 +696,8 @@
         </div>
 
         <div class="job">
-          <div>
-            <strong>Interac Canada</strong><br />
+          <div class="company-info">
+            <strong>Interac Canada</strong>
             <span class="sub">Contractor</span>
           </div>
           <div class="role">Design Lead</div>
@@ -699,8 +705,8 @@
         </div>
 
         <div class="job">
-          <div>
-            <strong>Thorgate</strong><br />
+          <div class="company-info">
+            <strong>Thorgate</strong>
             <span class="sub">Full-time • Agency</span>
           </div>
           <div class="role">Product Designer</div>
@@ -710,7 +716,7 @@
     </section>
 
     <div class="resume-button-container">
-      <a href="Resume.pdf" class="resume-button" target="_blank">Resume (PDF)</a>
+      <a href="https://github.com/samuelachen/samuelachen.github.io/blob/main/Resume.pdf" class="resume-button" target="_blank">Resume (PDF)</a>
     </div>
 
     <section id="contact" class="contact-section">
