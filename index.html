@@ -18,7 +18,7 @@
     /* Header */
     header {
       background-color: #212020;
-      padding: 40px 0;
+      padding: 20px 0;
       position: fixed;
       width: 100%;
       top: 0;
@@ -36,26 +36,32 @@
 
     .header-left {
       display: flex;
-      flex-direction: column;
-      gap: 4px;
+      align-items: center;
+      margin-left: 0;
     }
 
-    .header-name {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin: 0;
-      color: #fff;
+    .signature-logo {
+      width: 300px;
+      height: 90px;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
     }
 
-    .location {
-      font-size: 0.9rem;
-      color: #999;
+    .signature-logo:hover {
+      opacity: 0.8;
+    }
+
+    .signature-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     /* Header Navigation */
     .header-buttons {
       display: flex;
       gap: 2rem;
+      margin-right: 0;
     }
 
     .header-buttons a {
@@ -123,44 +129,230 @@
       color: #999;
     }
 
-    /* Experience Section */
-    .experience-list {
+    /* Experience and Education Section */
+    .experience-list, .education-list {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 1rem;
+    }
+
+    @keyframes slide {
+      from {
+        transform: translateX(-100%);  /* Start from the left */
+      }
+      to {
+        transform: translateX(100%);   /* Move to the right */
+      }
+    }
+
+    .education-item {
+      grid-template-columns: 2fr 1fr;
+      padding: 1rem;
+      border: 1px solid #333;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .education-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+      animation: none;
+    }
+
+    .education-item:hover::before {
+      opacity: 0.4;
+    }
+    
+    /* Michigan colors - equal parts maize and blue */
+    .education-item.umich:hover::before {
+      background: linear-gradient(
+        to right,
+        rgba(245, 220, 0) 0%,   
+        rgba(204, 170, 19, 1) 9.09%, 
+        rgba(153, 137, 33, 1) 18.18%,
+        rgba(102, 105, 48, 1) 27.27%,
+        rgba(51, 72, 62, 1) 36.36%,
+        rgba(0, 39, 76, 1) 54.54%,  
+        rgba(51, 72, 62, 1) 63.63%, 
+        rgba(102, 105, 48, 1) 72.72%,
+        rgba(153, 137, 33, 1) 81.81%,
+        rgba(204, 170, 19, 1) 90.9%,
+        rgba(245, 220, 0) 100%      
+      );
+      background-size: 200% 100%;
+      animation: gradientMove 3s linear infinite;
+    }
+    
+    /* Hockaday colors - equal parts red, white, and blue with more blue */
+    .education-item.hockaday:hover::before {
+      background: linear-gradient(
+        to right, 
+        #B22234 0%,    /* Red */
+        #B22234 16.6%, /* Red */
+        #d42d42 25%,   /* Bright red */
+        #FFFFFF 33.3%, /* White */
+        #e6e6e6 41.6%, /* Light gray */
+        #3C3B6E 50%,   /* Blue */
+        #4f4e8e 58.3%, /* Light blue */
+        #3C3B6E 66.6%, /* Blue */
+        #4f4e8e 75%,   /* Light blue */
+        #3C3B6E 83.3%, /* Blue */
+        #B22234 91.6%, /* Red */
+        #B22234 100%   /* Red */
+      );
+      background-size: 200% 100%;
+      animation: gradientMove 3s linear infinite;
+    }
+
+    @keyframes gradientMove {
+      0% {
+        background-position: 200% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .education-item:hover {
+      transform: translateY(-4px);
+      border: 1px solid rgba(255, 255, 255, 0.3);  /* Slightly more visible border */
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);  /* Enhanced shadow */
+    }
+
+    .education-item .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .education-item .school {
+      font-weight: 600;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .education-item .degree {
+      font-size: 0.9rem;
+      color: #999;
+      margin-top: 4px;
+      transition: color 0.3s ease;
+    }
+
+    .education-item .date {
+      color: #999;
+      text-align: right;
+      transition: color 0.3s ease;
+    }
+
+    .education-item:hover .school,
+    .education-item:hover .degree,
+    .education-item:hover .date {
+      color: #fff;
     }
 
     .job {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 1rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid #333;
+      grid-template-columns: 2fr 1fr;
+      padding: 1rem;
+      border: 1px solid #333;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
     }
 
-    .job:last-child {
-      border-bottom: none;
+    .job::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+      animation: none;
+    }
+
+    .job:hover::before {
+      opacity: 0.4;
+      animation: gradientMove 3s linear infinite;
+    }
+
+    /* Professional gradient for experience boxes */
+    .job:hover::before {
+      background: linear-gradient(
+        to right,
+        rgba(0, 39, 76, 1) 0%,      /* Deep blue */
+        rgba(51, 72, 62, 1) 18.18%, /* Dark teal */
+        rgba(102, 105, 48, 1) 36.36%, /* Olive */
+        rgba(153, 137, 33, 1) 54.54%, /* Bronze */
+        rgba(204, 170, 19, 1) 72.72%, /* Gold */
+        rgba(245, 220, 0, 1) 90.9%,   /* Bright gold */
+        rgba(0, 39, 76, 1) 100%      /* Back to deep blue */
+      );
+      background-size: 200% 100%;
+    }
+
+    .job .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .job:hover {
+      transform: translateY(-4px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
 
     .job .company {
       font-weight: 600;
       color: #fff;
+      transition: color 0.3s ease;
+      position: relative;
+      z-index: 1;
     }
 
     .job .sub {
       font-size: 0.9rem;
       color: #999;
       margin-top: 4px;
+      transition: color 0.3s ease;
+      position: relative;
+      z-index: 1;
     }
 
     .job .role {
       font-weight: 500;
       color: #fff;
+      transition: color 0.3s ease;
+      position: relative;
+      z-index: 1;
     }
 
     .job .date {
       color: #999;
       text-align: right;
+      transition: color 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .job:hover .company,
+    .job:hover .sub,
+    .job:hover .role,
+    .job:hover .date {
+      color: #fff;
     }
 
     /* Coursework Section */
@@ -354,25 +546,15 @@
       z-index: 3;
       margin-top: 8px;
     }
-
-    .airplane {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.5rem;
-      z-index: 2;
-      background-color: #212020;
-      padding: 0 10px;
-    }
   </style>
 </head>
 <body>
   <header>
     <div class="header-container">
       <div class="header-left">
-        <h1 class="header-name">Samuel Chen</h1>
-        <span class="location">Ann Arbor, Michigan</span>
+        <a href="#" class="signature-logo">
+          <img src="https://raw.githubusercontent.com/samuelachen/samuelachen.github.io/main/IMG_0183.jpg" alt="Samuel Chen Signature">
+        </a>
       </div>
       <nav class="header-buttons">
         <a href="#about">About</a>
@@ -391,7 +573,6 @@
           <div class="location-city">Dallas, TX</div>
           <div class="location-time" id="dallas-time"></div>
         </div>
-        <div class="airplane">✈️</div>
         <div class="location-item">
           <div class="location-city">Ann Arbor, MI</div>
           <div class="location-time" id="annarbor-time"></div>
@@ -403,12 +584,37 @@
       <div class="section-header">
         <h1>About</h1>
       </div>
-      <h2>Hey! I'm Samuel. I'm a student at the University of Michigan studying Economics with a minor in Data Science.</h2>
+      <h2>Hey! I'm Samuel. I'm a student at the University of Michigan studying Economics with a minor in Data Science. 
+        Most of my interests revolve around finance, real estate and analytics. Feel free to reach out to me, I'd love to chat!</h2>
     </section>
 
     <section id="experiences">
       <div class="section-header">
         <h1>Experience</h1>
+      </div>
+
+      <div class="subsection-header">
+        <h2>Education</h2>
+      </div>
+      <div class="education-list">
+        <div class="education-item umich">
+          <div class="content">
+            <div class="school">University of Michigan</div>
+            <div class="degree">B.A. in Economics, Minor in Data Science</div>
+          </div>
+          <div class="date">2021 → 2025</div>
+        </div>
+        <div class="education-item hockaday">
+          <div class="content">
+            <div class="school">The Hockaday School</div>
+            <div class="degree">High School Diploma</div>
+          </div>
+          <div class="date">2017 → 2021</div>
+        </div>
+      </div>
+
+      <div class="subsection-header" style="margin-top: 2rem;">
+        <h2>Work Experience</h2>
       </div>
       <div class="experience-list">
         <div class="job">
