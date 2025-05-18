@@ -90,12 +90,12 @@
 
     /* Main Content */
     main {
-      margin-top: 120px;
+      margin-top: 100px;
     }
 
     /* Update section styles for better scroll behavior */
     section {
-      padding: 80px 20px;
+      padding: 60px 20px;  /* Reduced from 80px */
       max-width: 800px;
       margin: 0 auto;
       scroll-margin-top: 120px;
@@ -103,7 +103,13 @@
 
     /* Add specific style for about section */
     #about {
-      padding-top: 40px;  /* Reduced from 80px to 40px */
+      padding-top: 40px;
+      padding-bottom: 20px;  /* Reduced bottom padding */
+    }
+
+    /* Add specific style for experiences section */
+    #experiences {
+      padding-top: 20px;  /* Reduced top padding */
     }
 
     .section-header {
@@ -173,53 +179,38 @@
       opacity: 1;
     }
     
-    /* Michigan colors - equal parts maize and blue */
+    /* Michigan colors - pure maize to blue transition */
     .education-item.umich:hover::before {
       background: linear-gradient(
         to right,
-        rgba(245, 220, 0, 0.8) 0%,   
-        rgba(204, 170, 19, 1) 9.09%, 
-        rgba(153, 137, 33, 1) 18.18%,
-        rgba(102, 105, 48, 1) 27.27%,
-        rgba(51, 72, 62, 1) 36.36%,
-        rgba(0, 39, 76, 0.8) 54.54%,  
-        rgba(51, 72, 62, 1) 63.63%, 
-        rgba(102, 105, 48, 1) 72.72%,
-        rgba(153, 137, 33, 1) 81.81%,
-        rgba(204, 170, 19, 1) 90.9%,
-        rgba(245, 220, 0, 0.8) 100%      
+        rgba(255,203,5,0.6) 0%,
+        rgba(0,39, 76, 0.8) 40%
       );
       background-size: 200% 100%;
-      animation: gradientMove 3s linear infinite;
     }
-    
-    /* Hockaday colors - equal parts red, white, and blue with more blue */
-    .education-item.hockaday:hover::before {
-      background: linear-gradient(
+      
+    .education-item.smu:hover::before {
+      background-image: linear-gradient(
         to right, 
-        #B22234 0%,    /* Red */
-        #B22234 16.6%, /* Red */
-        #d42d42 25%,   /* Bright red */
-        #FFFFFF 33.3%, /* White */
-        #e6e6e6 41.6%, /* Light gray */
-        #3C3B6E 50%,   /* Blue */
-        #4f4e8e 58.3%, /* Light blue */
-        #3C3B6E 66.6%, /* Blue */
-        #4f4e8e 75%,   /* Light blue */
-        #3C3B6E 83.3%, /* Blue */
-        #B22234 91.6%, /* Red */
-        #B22234 100%   /* Red */
+        #CC0035 0%, 
+        #354CA1 51%, 
+        #CC0035 100%
       );
-      background-size: 200% 100%;
-      animation: gradientMove 3s linear infinite;
+      background-size: 200% auto;
     }
 
-    @keyframes gradientMove {
+    .education-item.smu:hover {
+      background-position: right center;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    @keyframes gradientMoveLeft {
       0% {
-        background-position: 200% 50%;
+        background-position: 200% center;
       }
       100% {
-        background-position: 0% 50%;
+        background-position: 0% center;
       }
     }
 
@@ -264,69 +255,58 @@
     .job {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;  /* Three equal columns */
-      padding: 1rem;
+      padding: 1.5rem;
       border: 1px solid #333;
       border-radius: 8px;
       transition: all 0.3s ease;
       cursor: pointer;
       position: relative;
       overflow: hidden;
-      align-items: center;  /* Center items vertically */
+      align-items: center;
+      min-height: 80px;
+      height: 100%;
+      box-sizing: border-box;
     }
 
     .job .company-info {
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .job .company-info strong {
+      font-weight: 600;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .job .company-info .sub {
+      font-size: 0.9rem;
+      color: #999;
+      margin-top: 4px;
+      transition: color 0.3s ease;
     }
 
     .job .role {
       font-weight: 500;
       color: #fff;
       transition: color 0.3s ease;
-      position: relative;
-      z-index: 1;
-      text-align: center;  /* Center the role text */
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
     }
 
     .job .date {
       color: #999;
       text-align: right;
-      transition: color 0.3s ease;
-      position: relative;
-      z-index: 1;
-    }
-
-    .job::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: 0;
-      animation: none;
-    }
-
-    .job:hover::before {
-      opacity: 0.4;
-      animation: gradientMove 3s linear infinite;
-    }
-
-    /* Professional gradient for experience boxes */
-    .job:hover::before {
-      background: linear-gradient(
-        to right,
-        rgba(0, 39, 76, 1) 0%,      /* Deep blue */
-        rgba(51, 72, 62, 1) 18.18%, /* Dark teal */
-        rgba(102, 105, 48, 1) 36.36%, /* Olive */
-        rgba(153, 137, 33, 1) 54.54%, /* Bronze */
-        rgba(204, 170, 19, 1) 72.72%, /* Gold */
-        rgba(245, 220, 0, 1) 90.9%,   /* Bright gold */
-        rgba(0, 39, 76, 1) 100%      /* Back to deep blue */
-      );
-      background-size: 200% 100%;
+      transition: color 0.6s ease;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
     }
 
     .job:hover {
@@ -335,25 +315,8 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     }
 
-    .job .company {
-      font-weight: 600;
-      color: #fff;
-      transition: color 0.3s ease;
-      position: relative;
-      z-index: 1;
-    }
-
-    .job .sub {
-      font-size: 0.9rem;
-      color: #999;
-      margin-top: 4px;
-      transition: color 0.3s ease;
-      position: relative;
-      z-index: 1;
-    }
-
-    .job:hover .company,
-    .job:hover .sub,
+    .job:hover .company-info strong,
+    .job:hover .company-info .sub,
     .job:hover .role,
     .job:hover .date {
       color: #fff;
@@ -407,16 +370,18 @@
       }
 
       .job {
-        grid-template-columns: 1fr;  /* Stack on mobile */
+        grid-template-columns: 1fr;
         gap: 0.5rem;
       }
 
       .job .role {
-        text-align: left;  /* Left align on mobile */
+        text-align: left;
+        justify-content: flex-start;
       }
 
       .job .date {
-        text-align: left;  /* Left align on mobile */
+        text-align: left;
+        justify-content: flex-start;
       }
 
       h1 {
@@ -427,43 +392,124 @@
     /* Update Contact Section Styles */
     .contact-section {
       padding-top: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+      );
     }
 
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
       margin-top: 2rem;
+      position: relative;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .contact-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.25rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
     }
 
-    .contact-item h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #999;
-      margin: 0;
-    }
-
-    .contact-item a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.1rem;
+    .contact-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.03),
+        transparent
+      );
+      opacity: 0;
       transition: opacity 0.3s ease;
     }
 
-    .contact-item a:hover {
-      opacity: 0.7;
+    .contact-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     }
 
+    .contact-item:hover::before {
+      opacity: 1;
+    }
+
+    .contact-item h3 {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #999;
+      margin: 0 0 0.75rem 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .contact-item a,
     .contact-item p {
-      margin: 0;
       color: #fff;
-      font-size: 1.1rem;
+      text-decoration: none;
+      font-size: 1rem;
+      margin: 0;
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+    }
+
+    .contact-item a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.5);
+      transition: width 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #fff;
+      opacity: 1;
+    }
+
+    .contact-item a:hover::after {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        max-width: 400px;
+      }
+
+      .contact-item {
+        padding: 1rem;
+      }
     }
 
     /* Add Resume Button Styles */
@@ -489,70 +535,15 @@
       box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
     }
 
-    /* Add Location Timeline Styles */
-    .location-timeline {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .location-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: relative;
-      margin: 20px 0;
-    }
-
-    .location-line {
-      position: absolute;
-      top: 50%;
-      left: 25%;
-      right: 25%;
-      height: 2px;
-      background-color: #fff;
-      z-index: 1;
-    }
-
-    .location-item {
-      text-align: center;
-      z-index: 2;
-      background-color: #212020;
-      padding: 0 20px;
-      position: relative;
-    }
-
-    .dallas-skyline {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120px;
-      height: 60px;
-      opacity: 0.15;
-      background-image: url('https://github.com/samuelachen/samuelachen.github.io/blob/main/Dallas.jpg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center bottom;
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    .location-city {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 8px;
-      position: relative;
-      z-index: 3;
-    }
-
+    /* Remove Location Timeline Styles */
+    .location-timeline,
+    .location-container,
+    .location-line,
+    .location-item,
+    .dallas-skyline,
+    .location-city,
     .location-time {
-      font-size: 0.9rem;
-      color: #999;
-      position: relative;
-      z-index: 3;
-      margin-top: 8px;
+      display: none;
     }
   </style>
 </head>
@@ -561,33 +552,18 @@
     <div class="header-container">
       <div class="header-left">
         <a href="#" class="signature-logo">
-          <img src="https://raw.githubusercontent.com/samuelachen/samuelachen.github.io/main/IMG_0183.jpg" alt="Samuel Chen Signature">
+          <img src="https://raw.githubusercontent.com/samuelachen/samuelachen.github.io/main/Duck%20Signature.png" alt="Samuel Chen Signature">
         </a>
       </div>
       <nav class="header-buttons">
         <a href="#about">About</a>
-        <a href="#experiences">Experience</a>
+        <a href="#experiences">Resume</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <div class="location-timeline">
-      <div class="location-container">
-        <div class="location-line"></div>
-        <div class="location-item">
-          <div class="dallas-skyline"></div>
-          <div class="location-city">Dallas, TX</div>
-          <div class="location-time" id="dallas-time"></div>
-        </div>
-        <div class="location-item">
-          <div class="location-city">Ann Arbor, MI</div>
-          <div class="location-time" id="annarbor-time"></div>
-        </div>
-      </div>
-    </div>
-
     <section id="about">
       <div class="section-header">
         <h1>About</h1>
@@ -598,7 +574,7 @@
 
     <section id="experiences">
       <div class="section-header">
-        <h1>Experience</h1>
+        <h1>Resume</h1>
       </div>
 
       <div class="subsection-header">
@@ -610,19 +586,19 @@
             <div class="school">University of Michigan</div>
             <div class="degree">B.A. in Economics, Minor in Data Science</div>
           </div>
-          <div class="date">2021 → 2025</div>
+          <div class="date">2024 → 2027</div>
         </div>
-        <div class="education-item hockaday">
+        <div class="education-item smu">
           <div class="content">
-            <div class="school">The Hockaday School</div>
-            <div class="degree">High School Diploma</div>
+            <div class="school">Southern Methodist University</div>
+            <div class="degree">Computer Science Major, Data Science Major</div>
           </div>
-          <div class="date">2017 → 2021</div>
+          <div class="date">2023 → 2024</div>
         </div>
       </div>
 
       <div class="subsection-header" style="margin-top: 2rem;">
-        <h2>Work Experience</h2>
+        <h2>Experiences</h2>
       </div>
       <div class="experience-list">
         <div class="job">
@@ -728,54 +704,24 @@
       <div class="contact-grid">
         <div class="contact-item">
           <h3>Email</h3>
-          <a href="mailto:your.email@example.com">your.email@example.com</a>
+          <a href="mailto:sachen@umich.edu">sachen@umich.edu</a>
         </div>
         
         <div class="contact-item">
           <h3>Phone</h3>
-          <p>(123) 456-7890</p>
+          <p>(408) 745-9615</p>
         </div>
         
         <div class="contact-item">
           <h3>LinkedIn</h3>
-          <a href="https://linkedin.com/in/your-profile" target="_blank">linkedin.com/in/your-profile</a>
-        </div>
-        
-        <div class="contact-item">
-          <h3>GitHub</h3>
-          <a href="https://github.com/your-username" target="_blank">github.com/your-username</a>
+          <a href="https://linkedin.com/in/samuel-chen-umich" target="_blank">samuel-chen-umich</a>
         </div>
       </div>
     </section>
   </main>
 
   <script>
-    // Add time zone conversion function
-    function updateTimes() {
-      const now = new Date();
-      
-      // Dallas time (Central Time)
-      document.getElementById("dallas-time").textContent = now.toLocaleTimeString("en-US", {
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric',
-        hour12: true,
-        timeZone: "America/Chicago"  // Central Time Zone
-      });
-
-      // Ann Arbor time (Eastern Time)
-      document.getElementById("annarbor-time").textContent = now.toLocaleTimeString("en-US", {
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric',
-        hour12: true,
-        timeZone: "America/New_York"  // Eastern Time Zone
-      });
-    }
-
-    // Update times immediately and then every second
-    updateTimes();
-    setInterval(updateTimes, 1000);
+    // Remove the entire time update script
   </script>
 </body>
 </html>
