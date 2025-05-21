@@ -11,7 +11,6 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       scroll-behavior: smooth;
       background-color: #102C57;
-      color: #EADBC8;
       line-height: 1.6;
     }
 
@@ -100,6 +99,7 @@
 
     #experiences {
       padding-top: 20px;
+      padding-bottom: 0;  /* Remove bottom padding */
       background: transparent;
     }
 
@@ -149,14 +149,14 @@
       font-weight: 700;
       margin: 0 0 1rem 0;
       line-height: 1.2;
-      color: #F8F0E5;
+      color: #DAC0A3;
     }
 
     h2 {
       font-size: 1.5rem;
       font-weight: 500;
       margin: 0 0 2rem 0;
-      color: #e2b581;
+      color: #F8F0E5;
     }
 
     /* Experience and Education Section */
@@ -178,7 +178,7 @@
     .education-item {
       grid-template-columns: 2fr 1fr;
       padding: 1rem;
-      border: 1px solid #EADBC8;
+      border: 1px solid #8e7354; /*Education Border*/
       border-radius: 8px;
       transition: all 0.3s ease;
       cursor: pointer;
@@ -273,7 +273,7 @@
     .education-item:hover .school,
     .education-item:hover .degree,
     .education-item:hover .date {
-      color: #fff;
+      color: #fff; /*Degree and date color when hovering*/
     }
 
     .job {
@@ -312,7 +312,7 @@
     }
 
     .job .date {
-      color: #999;
+      color: #fff;
       text-align: right;
       transition: color 0.6s ease;
       display: flex;
@@ -536,7 +536,7 @@
     /* Add Resume Button Styles */
     .resume-button-container {
       text-align: center;
-      margin: 7.5px 0 60px 0;
+      margin: 10px 0 25px 0;  /* Added negative top margin to move it up */
     }
 
     .resume-button {
@@ -561,7 +561,7 @@
       position: relative;
       margin-bottom: 1.5rem;
       background: #102C57;
-      border: 1px solid rgba(234, 219, 200, 0.08);
+      border: 1px solid #8e7354;
       border-radius: 8px;  /* Match education item border radius */
       overflow: hidden;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -666,7 +666,7 @@
 
     .work-project-description {
       padding: 1rem 0;  /* Adjust padding to match new structure */
-      color: #fff;
+      color: #fff; /*Job Title*/
       opacity: 0.8;
       line-height: 1.6;
       font-size: 1rem;
@@ -685,7 +685,7 @@
     .work-project-achievement {
       position: relative;
       padding-left: 1.5rem;
-      color: #fff;
+      color: #fff; /*resume description*/
       opacity: 0.8;
       font-size: 0.95rem;
       line-height: 1.6;  /* Increased from 1.5 for better readability */
